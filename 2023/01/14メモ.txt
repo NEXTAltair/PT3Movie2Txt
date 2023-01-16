@@ -1,0 +1,9 @@
+任意のフォルダにffmpegをインストールしてbinにPathを通す
+
+venvにインストールしようとすると何故かtorch==1.13.1になって+cu117が入らない
+whisperの後にtorchをアンインストールから
+pip3 install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu117
+   torchvision torchaudio は別にいらないかも
+pipとpip3の使い分けはわからない
+
+先に動画から音声ファイルを抜き出して処理するスクリプトを作ることにした

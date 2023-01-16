@@ -7,7 +7,7 @@ import os
 import ffmpeg
 
 # 変換元のフォルダ
-src_folder = "L:"
+src_folder = "TestFile"
 
 # 変換先のフォルダ
 dst_folder = "wav"

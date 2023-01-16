@@ -1,0 +1,6 @@
+tsから音声ファイルをWAVに抜き出せない
+
+Error while decoding stream #0:1: Not yet implemented in FFmpeg, patches welcome
+Error while decoding stream #0:1: Invalid data found when processing input
+
+エラーは出るけど変換処理はできている
