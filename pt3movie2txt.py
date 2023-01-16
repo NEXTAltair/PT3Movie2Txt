@@ -22,8 +22,6 @@ for audio_file in audio_path:
     result = model.transcribe(audio=audio_file, verbose=True, language="ja")
     # 出力処理ファイルの準備
     output_file = os.path.join(output_folder, os.path.basename(audio_file).replace(".wav", ".txt"))
-    #resultはdict(辞書)型なのでjson.dumpでstr(文字列)型に変換
-    transcribed_text = json.dumps(result)
     #, encoding='utf-8'と, ensure_ascii=False忘れると文字コードしか出ない
     with open(output_file, "w", encoding='utf-8') as f:
         f.write(result["text"])
