@@ -1,3 +1,4 @@
+ターミナルの出力結果
 [32:38.000 --> 32:42.000] 基本的には地球の内部で金属流体が回転している
 [32:43.000 --> 32:46.000] そうすると電流ができます電流っていうのは磁場を作ります
 [32:47.000 --> 32:50.000] それが磁気だっていうのがこれが基本的な考え方なんですね
@@ -10,3 +11,6 @@
 表示はできるがtxtに日本語で保存できなかったが下のコードでなんとかなった
     with open(output_file, "w", encoding='utf-8') as f:
         f.write(result["text"])
+#result内ではsegmentsで分割されてるのでその中からidとtextを取り出して一行ずつtxtに保存
+    for segment in result["segments"]:
+        f.write(f"id:{segment['id']} {segment['text']}\n")

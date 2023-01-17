@@ -1,5 +1,5 @@
 .vscode/
 venv/
-TestFile/
-wav/
-wtxt/*
+TestFile/*
+wav/*
+twav/
