@@ -8,7 +8,7 @@ import json
 model = whisper.load_model("large-v2")
 
 # 変換元のフォルダ
-wav_folder = "twav"
+wav_folder = "wav"
 
 # 変換先のフォルダ
 output_folder = "wtxt"
@@ -22,7 +22,7 @@ for audio_file in audio_path:
     output_file = os.path.join(output_folder, os.path.basename(audio_file).replace(".wav", ".txt"))
     # 同名の.txtが存在する場合はスキップ
     if os.path.exists(output_file):
-        print(output_file + " already exists.")
+        print(output_file + "は変換済み")
         continue
     #文字起こし
     result = model.transcribe(audio=audio_file, verbose=True, language="ja")

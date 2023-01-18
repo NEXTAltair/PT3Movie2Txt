@@ -28,7 +28,7 @@ for root, dirs, files in os.walk(src_folder):
                 temp_file = os.path.join(root, os.path.splitext(file)[0]+".mp4")
                 # 同名の.mp4が存在する場合はスキップ
                 if os.path.exists(output_file):
-                    print(output_file + " already exists.")
+                    print(output_file + "は変換済み")
                     continue
                 ffmpeg.input(input_file).output(temp_file).run()
                 input_file = temp_file
@@ -36,6 +36,6 @@ for root, dirs, files in os.walk(src_folder):
             output_file = os.path.join(dst_folder, os.path.splitext(file)[0]+".wav")
             # 同名の.wavが存在する場合はスキップ
             if os.path.exists(output_file):
-                print(output_file + " already exists.")
+                print(output_file + "は変換済み")
                 continue
             ffmpeg.input(input_file).output(output_file, acodec='pcm_s16le', vcodec='none').run()
