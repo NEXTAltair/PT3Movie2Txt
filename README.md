@@ -1,0 +1,3 @@
+# PT3Movie2Txt
+録画ファイルとかをwhisperで一気に文字起こしするやつ
+ChatGPTとGoogleと初心者向け記事を書いてくれた人のおかげのおかげ
