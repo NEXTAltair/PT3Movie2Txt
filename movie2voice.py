@@ -23,6 +23,8 @@ for root, dirs, files in os.walk(src_folder):
     for file in files:
         if file.endswith(ext):
             input_file = os.path.join(root, file)
+            # ffmpegを使用して音声のみを抽出しwavへ変換するファイルの作成
+            output_file = os.path.join(dst_folder, os.path.splitext(file)[0]+".wav")
             #tsは先にmp4へ変換処理
             if file.endswith('.ts'):
                 temp_file = os.path.join(root, os.path.splitext(file)[0]+".mp4")
@@ -32,10 +34,9 @@ for root, dirs, files in os.walk(src_folder):
                     continue
                 ffmpeg.input(input_file).output(temp_file).run()
                 input_file = temp_file
-            # ffmpegを使用して音声のみを抽出しwavへ変換
-            output_file = os.path.join(dst_folder, os.path.splitext(file)[0]+".wav")
             # 同名の.wavが存在する場合はスキップ
             if os.path.exists(output_file):
                 print(output_file + "は変換済み")
                 continue
+            #output_fileの中身に音声だけをエンコードして書き込み
             ffmpeg.input(input_file).output(output_file, acodec='pcm_s16le', vcodec='none').run()
