@@ -13,10 +13,10 @@ wav_folder = "wav"
 # 変換先のフォルダ
 output_folder = "wtxt"
 
-#変換元ファイル
+#変換元ファイルglob使わないと他のワイルドカードでwavを指定できない?in os.walkでもいいか?
 audio_path = glob.glob(os.path.join(wav_folder, "*.wav"))
 
-#model.transcribeはリストでファイルをは受け付けないのでforが必要
+#model.transcribeはリストでファイルをは受け付けないのでforでファイルのリストから一つづつ取り出して処理
 for audio_file in audio_path:
     #文字起こし
     result = model.transcribe(audio=audio_file, verbose=True, language="ja")
