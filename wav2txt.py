@@ -18,10 +18,14 @@ audio_path = glob.glob(os.path.join(wav_folder, "*.wav"))
 
 #model.transcribeはリストでファイルをは受け付けないのでforでファイルのリストから一つづつ取り出して処理
 for audio_file in audio_path:
-    #文字起こし
-    result = model.transcribe(audio=audio_file, verbose=True, language="ja")
     # 出力処理ファイルの準備
     output_file = os.path.join(output_folder, os.path.basename(audio_file).replace(".wav", ".txt"))
+    # 同名の.txtが存在する場合はスキップ
+    if os.path.exists(output_file):
+        print(output_file + "は変換済み")
+        continue
+    #文字起こし
+    result = model.transcribe(audio=audio_file, verbose=True, language="ja")
     #resultはdict(辞書)型なのでjsonモジュールのjson.dumpでstr(文字列)型に変換
     transcribed_text = json.dumps(result)
     #, encoding='utf-8'忘れると文字コードしか出ない
