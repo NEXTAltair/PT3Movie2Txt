@@ -6,12 +6,20 @@ wavをtxtにするやつ
 大量の録画ファイルを一気に処理してる最中なんで妙なバグがあるかもしれないが今のところ動く
 
 # 導入の注意点
-pip3 install git+https://github.com/openai/whisper.git
-でインストールすると何故かtorchがcudaに対応していない
+python 3.11では動かない  
 
-## コレで対応させられる(ハズ)
-pip uninstall torch
-pip3 install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu117
+`python -m venv venv`  
+`python.exe -m pip install --upgrade pip`  
+## whisperのreadmeに従ってインストールすると何故かtorchがcudaに対応していない
+何故かではなくもともとwhisperはCPUで動かすのが前提っぽい?  
+コレで対応させられる(ハズ)  
 
-## ToDo
-print("tsからmp4へ変換")とか表示の位置がなにかおかしい気がする
+`pip install git+https://github.com/openai/whisper.git`  
+`pip install --upgrade --no-deps --force-reinstall git+https://github.com/openai/whisper.git`  
+`pip uninstall torch`  
+`pip3 install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu117`  
+
+## .tsファイルのエンコード処理のために必要  
+`pip install ffmpeg`  
+# ToDo  
+`print("tsからmp4へ変換")`とか表示の位置がなにかおかしい気がする  
