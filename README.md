@@ -19,6 +19,9 @@ python 3.11では動かない
 `pip uninstall torch`  
 `pip3 install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu117`  
 
+## tsから字幕を抜き出すモジュール
+`pip install git+https://github.com/reazon-research/reazonspeech`
+
 ## .tsファイルのエンコード処理のために必要  
 `pip install ffmpeg`  
 別途ffmpegをインストールしてbinへのPathを通すの必須
