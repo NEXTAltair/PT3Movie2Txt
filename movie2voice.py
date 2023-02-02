@@ -26,7 +26,7 @@ for root, dirs, files in os.walk(src_folder):
             input_file = os.path.join(root, file)
             # ffmpegを使用して音声のみを抽出しwavへ変換するファイルの作成
             output_file = os.path.join(dst_folder, os.path.splitext(file)[0]+".wav")
-            #tsは先にmp4へ変換処理
+            #tsは先にmp4へ変換処理｡放送大学ラジオはそのままWAVに変換できないため
             if file.endswith('.ts'):
                 temp_file = os.path.join(root, os.path.splitext(file)[0]+".mp4")
                 # 同名のmp4が存在する場合はスキップ

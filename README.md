@@ -22,9 +22,13 @@ python 3.11では動かない
 ## tsから字幕を抜き出すモジュール
 `pip install git+https://github.com/reazon-research/reazonspeech`
 
+https://github.com/iGlitch/Caption2Ass
+許諾的に最終的にGPTに食わせようって考えてるから使えない
+
 ## .tsファイルのエンコード処理のために必要  
 `pip install ffmpeg`  
 # ToDo  
 `print("tsからmp4へ変換")`とか表示の位置がなにかおかしい気がする  
 tsからmp4にエンコード途中で止めると破損したmp4が残ってエラーで止まるのは別に手動で消せばいいか
 依存関係に色々入りすぎてるのはそのうち消す
+2023-02-02 生のtsファイル持ってるならから字幕データを摘出するほうが速いかと
